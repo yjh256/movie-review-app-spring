@@ -3,7 +3,6 @@ package com.yjh256.moviereviewappspring.api;
 import com.yjh256.moviereviewappspring.web.dto.MoviesResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
