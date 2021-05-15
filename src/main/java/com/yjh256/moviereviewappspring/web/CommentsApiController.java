@@ -25,7 +25,7 @@ public class CommentsApiController {
         return commentsService.modifyComments(id, requestDto);
     }
 
-    @GetMapping("/api/v1/comments/{movieKey}")
+    @GetMapping("/comments/{movieKey}")
     public List<CommentsListResponseDto> ListComments(@PathVariable String movieKey) {
         return commentsService.listsComments(movieKey);
     }

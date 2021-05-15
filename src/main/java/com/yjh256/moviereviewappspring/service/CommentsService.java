@@ -48,6 +48,7 @@ public class CommentsService {
     }
 
     // 댓글 삭제
+    @Transactional
     public void deleteComments(Long id) {
         Comments comment = commentsRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 댓글이 없습니다. commentNo = " + id));

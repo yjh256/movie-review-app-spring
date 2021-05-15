@@ -25,7 +25,7 @@ public class Comments extends BaseTimeEntity {
     private String movie_key;
 
     @Column(columnDefinition = "integer default 0")
-    private Long likes;
+    private int likes;
 
     @Column(columnDefinition = "integer default 0")
     private int rating;
@@ -42,5 +42,4 @@ public class Comments extends BaseTimeEntity {
         this.content = content;
         this.rating = rating;
     }
-
 }

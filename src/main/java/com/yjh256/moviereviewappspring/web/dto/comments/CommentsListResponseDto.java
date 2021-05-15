@@ -12,6 +12,7 @@ public class CommentsListResponseDto {
     private String content;
     private String author;
     private int rating;
+    private int likes;
     private String modifiedDate;
 
     public CommentsListResponseDto(Comments entity) {
@@ -19,6 +20,7 @@ public class CommentsListResponseDto {
         this.author = entity.getAuthor();
         this.content = entity.getContent();
         this.rating = entity.getRating();
+        this.likes = entity.getLikes();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         this.modifiedDate = entity.getModifiedDate().format(formatter);
     }
