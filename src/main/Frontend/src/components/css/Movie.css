@@ -1,0 +1,51 @@
+.movie {
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        opacity: 0;
+        margin-top: 50px;
+    }
+
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+.movie img {
+    position: relative;
+    top: -50px;
+    max-width: 150px;
+    width: 100%;
+    margin-right: 30px;
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+        0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+
+.movie .movie__title,
+.movie .movie__year {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.movie .movie__title {
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: #2c2c2c;
+}
+
+.movie .movie__directors, .movie__actors, .movie__rating {
+    padding: 0;
+    margin: 0;
+    margin: 10px 0px;
+    font-size: 20px;
+}
+
+.movie__genres li,
+.movie .movie__year {
+    margin-right: 10px;
+}
