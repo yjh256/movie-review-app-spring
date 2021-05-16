@@ -26,7 +26,7 @@ dependencies {
 	}
 }
 
-def webappDir = "$projectDir/src/main/frontend"
+def webappDir = "$projectDir/src/main/resources/frontend"
 
 sourceSets {
 	main {
