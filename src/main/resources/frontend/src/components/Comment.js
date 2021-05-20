@@ -1,7 +1,7 @@
 import react from 'react';
 import ReactStars from 'react-rating-stars-component';
 import axios from 'axios';
-import Accordion from 'react-bootstrap/accordion';
+import { Accordion } from 'react-bootstrap';
 import CommentUpdateForm from './CommentUpdateForm';
 import Button from 'react-bootstrap/Button';
 
