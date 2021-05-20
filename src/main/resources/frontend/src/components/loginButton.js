@@ -27,8 +27,7 @@ class Login extends react.Component {
                 };
                 this.setState({ profile: data });
                 this.props.getProfile(this.state.profile);
-                const url="http://localhost:8080/api/v1/user";
-                axios.post(url, data)
+                axios.post("/api/v1/user", data)
                 .catch(error => console.log(error));
             },
             (error) => {
