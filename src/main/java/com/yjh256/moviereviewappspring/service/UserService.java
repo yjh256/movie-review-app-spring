@@ -14,6 +14,8 @@ public class UserService {
 
     @Transactional
     public String save(UserSaveRequestDto userSaveRequestDto) {
+        userRepository.findById(userSaveRequestDto.getId())
+                .ifPresent(user -> user.getId());
         return userRepository.save(userSaveRequestDto.toEntity()).getId();
     }
 }
