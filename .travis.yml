@@ -8,14 +8,14 @@ branches:
 
 before_install:
   - chmod +x ./gradlew
-
+  -
 # Travis CI 서버의 Home
 cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
-script: "./gradlew clean build"
+script: "./gradlew clean build --scan"
 
 # CI 실행 완료 시 메일로 알림
 notifications:
