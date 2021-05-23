@@ -62,6 +62,8 @@ task installReact(type: Exec) {
 		commandLine "npm.cmd", "audit", "fix"
 		commandLine 'npm.cmd', 'install'
 	} else {
+		commandLine 'curl', '-sL', 'https://deb.nodesource.com/setup_16.x', '|', 'sudo', '-E', 'bash', '-'
+		commandLine 'sudo', 'apt-get', 'install', '-y', 'nodejs'
 		commandLine "npm", "audit", "fix"
 		commandLine 'npm', 'install'
 	}
