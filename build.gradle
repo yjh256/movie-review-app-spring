@@ -61,12 +61,12 @@ task installReact(type: Exec) {
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
 		commandLine 'curl', '-sL', 'https://deb.nodesource.com/setup_16.x', '|', 'sudo', '-E', 'bash', '-'
 		commandLine 'sudo', 'apt-get', 'install', '-y', 'nodejs'
-		commandLine "npm.cmd", "audit", "fix"
+		commandLine "npm.cmd", "audit", "fix", '--scan'
 		commandLine 'npm.cmd', 'install'
 	} else {
 		commandLine 'curl', '-sL', 'https://deb.nodesource.com/setup_16.x', '|', 'sudo', '-E', 'bash', '-'
 		commandLine 'sudo', 'apt-get', 'install', '-y', 'nodejs'
-		commandLine "npm", "audit", "fix"
+		commandLine "npm", "audit", "fix", '--scan'
 		commandLine 'npm', 'install'
 	}
 }
