@@ -8,8 +8,7 @@ branches:
 
 before_install:
   - chmod +x ./gradlew
-
-before_script: cat /home/travis/.npm/_logs/2021-05-23T06_50_59_795Z-debug.log
+  - cat /home/travis/.npm/_logs/2021-05-23T06_50_59_795Z-debug.log
 
 
 cache:
