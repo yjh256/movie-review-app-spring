@@ -69,15 +69,11 @@ task installReact(type: Exec) {
 	inputs.dir "$webappDir"
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-		commandLine "npm.cmd", "cache", "clean", "--force"
-		commandLine "npm.cmd", "rebuild"
-		commandLine "rm", "-rf", "node_modules"
+		commandLine "sudo", "rm", "-rf", "node_modules", "package-lock.json"
 		commandLine "npm.cmd", "audit", "fix"
 		commandLine 'npm.cmd', 'install'
 	} else {
-		commandLine "npm.cmd", "cache", "clean", "--force"
-		commandLine "npm.cmd", "rebuild"
-		commandLine "rm", "-rf", "node_modules"
+		commandLine "sudo", "rm", "-rf", "node_modules", "package-lock.json"
 		commandLine "npm", "audit", "fix"
 		commandLine 'npm', 'install'
 	}
