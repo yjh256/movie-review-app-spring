@@ -70,13 +70,15 @@ task installReact(type: Exec) {
 	inputs.dir "$webappDir"
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-		commandLine 'curl', '-sL', 'https://deb.nodesource.com/setup_16.x', '|', 'sudo', '-E', 'bash', '-'
-		commandLine 'sudo', 'apt-get', 'install', '-y', 'nodejs'
+		commandLine "npm.cmd", "cache", "clean", "--force"
+		commandLine "npm.cmd", "rebuild"
+		commandLine "rm", "-rf", "node_modules"
 		commandLine "npm.cmd", "audit", "fix"
 		commandLine 'npm.cmd', 'install'
 	} else {
-		commandLine 'curl', '-sL', 'https://deb.nodesource.com/setup_16.x', '|', 'sudo', '-E', 'bash', '-'
-		commandLine 'sudo', 'apt-get', 'install', '-y', 'nodejs'
+		commandLine "npm.cmd", "cache", "clean", "--force"
+		commandLine "npm.cmd", "rebuild"
+		commandLine "rm", "-rf", "node_modules"
 		commandLine "npm", "audit", "fix"
 		commandLine 'npm', 'install'
 	}
