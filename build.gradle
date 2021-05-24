@@ -71,11 +71,9 @@ task installReact(type: Exec) {
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
 		commandLine "sudo", "rm", "-rf", "node_modules", "package-lock.json"
 		commandLine 'npm.cmd', 'install'
-		commandLine "npm.cmd", "audit", "fix"
 	} else {
 		commandLine "sudo", "rm", "-rf", "node_modules", "package-lock.json"
 		commandLine 'npm', 'install'
-		commandLine "npm", "audit", "fix"
 	}
 }
 
