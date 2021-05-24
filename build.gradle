@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.4.5'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'com.github.node-gradle.node' version "2.2.4"
 }
 
 group = 'com.yjh256'
@@ -11,6 +12,8 @@ sourceCompatibility = '11'
 repositories {
 	mavenCentral()
 }
+
+apply plugin: 'com.github.node-gradle.node'
 
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-web')
@@ -36,6 +39,13 @@ sourceSets {
 			srcDirs = ["$webappDir/build", "$projectDir/src/main/resources"]
 		}
 	}
+}
+
+node {
+	version = '16.1.0'
+	download=true
+	workDir = file("$webappDir/nodejs")
+	npmWorkDir=file("$webappDir/npm")
 }
 
 processResources {
