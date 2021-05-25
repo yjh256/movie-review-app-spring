@@ -48,9 +48,9 @@ node {
 	npmWorkDir=file("$webappDir/npm")
 }
 
-processResources {
+/* processResources {
 	dependsOn "buildReact"
-}
+} */
 
 /* task buildReact(type: Exec) {
 	dependsOn "installReact"
