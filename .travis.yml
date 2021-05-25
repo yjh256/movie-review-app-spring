@@ -18,6 +18,10 @@ cache:
 
 script: './gradlew clean build -x test'
 
+buildScan:
+  licenseAgreeUrl: "https://gradle.com/terms-of-service"
+  licenseAgree: "yes"
+
 notifications:
   email:
     recipients:
