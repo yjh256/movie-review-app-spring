@@ -16,7 +16,7 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
-script: './gradlew clean build -x test'
+script: './gradlew clean build -x test --scan'
 
 notifications:
   email:
