@@ -9,7 +9,7 @@ branches:
 before_install:
   - chmod +x ./gradlew
 
-install: "./gradlew clean build -x test --scan yes"
+install: "./gradlew clean build -x test --scan -s"
 
 cache:
   directories:
@@ -17,10 +17,6 @@ cache:
     - '$HOME/.gradle'
 
 script: './gradlew clean build -x test'
-
-buildScan:
-  licenseAgreeUrl: "https://gradle.com/terms-of-service"
-  licenseAgree: "yes"
 
 notifications:
   email:
