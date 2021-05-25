@@ -9,7 +9,7 @@ branches:
 before_install:
   - chmod +x ./gradlew
 
-install: "./mvnw clean install"
+sudo: required
 
 cache:
   directories:
