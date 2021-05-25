@@ -9,6 +9,8 @@ branches:
 before_install:
   - chmod +x ./gradlew
 
+install: "./mvnw clean install"
+
 cache:
   directories:
     - '$HOME/.m2/repository'
