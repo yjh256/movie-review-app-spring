@@ -52,7 +52,7 @@ processResources {
 	dependsOn "buildReact"
 }
 
-task buildReact(type: Exec) {
+/* task buildReact(type: Exec) {
 	dependsOn "installReact"
 	workingDir "$webappDir"
 	inputs.dir "$webappDir"
@@ -75,7 +75,22 @@ task installReact(type: Exec) {
 		commandLine "sudo", "rm", "-rf", "node_modules", "package-lock.json"
 		commandLine 'npm', 'install'
 	}
+} */
+
+// npm install 과정
+task appNpmInstall(type: NpmTask) {
+	workingDir = file("$webappDir")
+	args = ["install"]
 }
+
+// yarn build
+task yarnBuild(type: YarnTask) {
+	workingDir = file("$webappDir")
+	args = ['build']
+}
+
+yarnBuild.dependsOn appNpmInstall
+compileJava.dependsOn yarnBuild
 
 test {
 	useJUnitPlatform()
