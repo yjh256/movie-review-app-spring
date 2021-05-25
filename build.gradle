@@ -64,6 +64,13 @@ node {
 	}
 }
 
+if (hasProperty('buildScan')) {
+	buildScan {
+		termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+		termsOfServiceAgree = 'yes'
+	}
+}
+
 task installReact(type: Exec) {
 	workingDir "$webappDir"
 	inputs.dir "$webappDir"
@@ -76,7 +83,6 @@ task installReact(type: Exec) {
 		commandLine 'npm', 'install'
 	}
 }
-
 
 test {
 	useJUnitPlatform()
