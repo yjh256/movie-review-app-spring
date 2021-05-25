@@ -9,7 +9,7 @@ branches:
 before_install:
   - chmod +x ./gradlew
 
-install: "./gradlew clean build -x test --info"
+install: "./gradlew clean build -x test --debug"
 
 cache:
   directories:
