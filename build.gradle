@@ -42,7 +42,7 @@ sourceSets {
 }
 
 node {
-	version = '14.15.1'
+	version = '12.18.1'
 	download=true
 	workDir = file("$webappDir/nodejs")
 	npmWorkDir=file("$webappDir/npm")
