@@ -76,9 +76,11 @@ task installReact(type: NpmTask) {
 	inputs.dir "$webappDir"
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+		args = ['init']
 		args = ['audit', 'fix', '--force']
 		args = ['install']
 	} else {
+		args = ['init']
 		args = ['audit', 'fix', '--force']
 		args = ['install']
 	}
