@@ -77,12 +77,12 @@ task installReact(type: Exec) {
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
 		commandLine "sudo", "rm", "-rf", "node_modules", "package-lock.json"
-		commandLine 'npm.cmd audit fix --force'
-		commandLine 'npm.cmd install'
+		commandLine 'npm.cmd', 'audit', 'fix', '--force'
+		commandLine 'npm.cmd', 'install'
 	} else {
 		commandLine "sudo", "rm", "-rf", "node_modules", "package-lock.json"
-		commandLine 'npm audit fix --force'
-		commandLine 'npm install'
+		commandLine 'npm', 'audit', 'fix', '--force'
+		commandLine 'npm', 'install'
 	}
 }
 
