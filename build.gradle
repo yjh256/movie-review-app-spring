@@ -44,8 +44,8 @@ sourceSets {
 node {
 	version = '12.18.1'
 	download=true
-	workDir = file("$webappDir/nodejs")
-	npmWorkDir=file("$webappDir/npm")
+	workDir = file("$webappDir")
+	npmWorkDir=file("$webappDir")
 }
 
  processResources {
