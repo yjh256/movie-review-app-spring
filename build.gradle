@@ -43,6 +43,7 @@ sourceSets {
 
 node {
 	version = '14.15.1'
+	npmVersion = '7.8.0'
 	download=true
 	workDir = file("$webappDir")
 	npmWorkDir=file("$webappDir")
@@ -76,11 +77,9 @@ task installReact(type: NpmTask) {
 	inputs.dir "$webappDir"
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-		args = ['init']
 		args = ['audit', 'fix', '--force']
 		args = ['install']
 	} else {
-		args = ['init']
 		args = ['audit', 'fix', '--force']
 		args = ['install']
 	}
