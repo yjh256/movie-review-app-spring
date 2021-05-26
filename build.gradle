@@ -53,15 +53,15 @@ node {
 	dependsOn "buildReact"
 }
 
- task buildReact(type: YarnTask) {
+ task buildReact(type: NpmTask) {
 	dependsOn "installReact"
 	workingDir file("$webappDir")
 	inputs.dir "$webappDir"
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-		args = ["build"]
+		args = ["run", "build"]
 	} else {
-		args = ["build"]
+		args = ["run", "build"]
 	}
 }
 
