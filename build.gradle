@@ -52,15 +52,15 @@ node {
 	dependsOn "buildReact"
 }
 
- task buildReact(type: Exec) {
+ task buildReact(type: NpmTask) {
 	dependsOn "installReact"
-	workingDir "$webappDir"
+	workingDir file("$webappDir")
 	inputs.dir "$webappDir"
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-		commandLine "npm.cmd", "run-script", "build"
+		args = ["run-script", "build"]
 	} else {
-		commandLine "npm", "run-script", "build"
+		args = ["run-script", "build"]
 	}
 }
 
@@ -71,18 +71,16 @@ if (hasProperty('buildScan')) {
 	}
 }
 
-task installReact(type: Exec) {
-	workingDir "$webappDir"
+task installReact(type: NpmTask) {
+	workingDir file("$webappDir")
 	inputs.dir "$webappDir"
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-		commandLine "sudo", "rm", "-rf", "node_modules", "package-lock.json"
-		commandLine 'npm.cmd', 'audit', 'fix', '--force'
-		commandLine 'npm.cmd', 'install'
+		args = ['audit', 'fix', '--force']
+		args = ['install']
 	} else {
-		commandLine "sudo", "rm", "-rf", "node_modules", "package-lock.json"
-		commandLine 'npm', 'audit', 'fix', '--force'
-		commandLine 'npm', 'install'
+		args = ['audit', 'fix', '--force']
+		args = ['install']
 	}
 }
 
