@@ -53,7 +53,7 @@ node {
 	dependsOn "buildReact"
 }
 
- task buildReact(type: NpmTask) {
+ task buildReact(type: YarnTask) {
 	dependsOn "installReact"
 	workingDir file("$webappDir")
 	inputs.dir "$webappDir"
