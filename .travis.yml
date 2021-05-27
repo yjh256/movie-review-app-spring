@@ -18,6 +18,22 @@ cache:
 
 script: './gradlew clean build -x test --scan'
 
+before_deploy:
+  - zip -r movie-review-app-spring *
+  - mkdir -p deploy
+  - mv movie-review-app-spring.zip deploy/movie-review-app-spring.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: movie-review-app-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+
 notifications:
   email:
     recipients:
