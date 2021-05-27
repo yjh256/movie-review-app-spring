@@ -24,6 +24,9 @@ before_deploy:
   - mv movie-review-app-spring.zip deploy/movie-review-app-spring.zip
 
 deploy:
+  - provider: script
+    script: travis-wait-improved --timeout 20m zip -r movie-review-app-spring *
+
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
