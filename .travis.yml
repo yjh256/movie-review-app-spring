@@ -19,7 +19,7 @@ cache:
 script: './gradlew clean build -x test --scan'
 
 before_deploy:
-  - zip -r movie-review-app-spring *
+  - zip -r movie-review-app-spring * -q
   - mkdir -p deploy
   - mv movie-review-app-spring.zip deploy/movie-review-app-spring.zip
 
