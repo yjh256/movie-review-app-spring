@@ -11,6 +11,7 @@ class Home extends React.Component {
         isLoading: true,
         movies: [],
         value: "",
+        page: 1,
         isError: false
     };
 
@@ -20,7 +21,7 @@ class Home extends React.Component {
             if (search === "") {
                 this.setState({ movies: [], isLoading: false })
             } else {
-                const { data : { items }}= await axios.get('/api/v1/movies/'+search);
+                const { data : { items }}= await axios.get('/api/v1/movies/'+search+'/'+page);
                 this.setState({ movies: items, isLoading: false })
             }
         } catch (error) {
