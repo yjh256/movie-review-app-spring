@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class MoviesApiController {
     private final MoviesService moviesService;
 
-    @GetMapping("/api/v1/movies/{keyword}")
-    public MoviesResponseDto get(@PathVariable String keyword) {
-        return moviesService.findByKeyword(keyword);
+    @GetMapping("/api/v1/movies/{keyword}/{page}")
+    public MoviesResponseDto get(@PathVariable String keyword, int page) {
+        return moviesService.findByKeyword(keyword, (page-1)*10+1);
     }
 }

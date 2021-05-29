@@ -12,7 +12,7 @@ public class MoviesService {
     private final MovieApiClient movieApiClient;
 
     @Transactional(readOnly = true)
-    public MoviesResponseDto findByKeyword(String keyword) {
-        return movieApiClient.requestMovie(keyword);
+    public MoviesResponseDto findByKeyword(String keyword, int start) {
+        return movieApiClient.requestMovie(keyword, start);
     }
 }
