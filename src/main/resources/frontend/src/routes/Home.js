@@ -17,6 +17,7 @@ class Home extends React.Component {
 
     getSearchMovie = async () => {
         const search = this.state.value;
+        const page = this.state.page;
         try {
             if (search === "") {
                 this.setState({ movies: [], isLoading: false })
@@ -29,6 +30,12 @@ class Home extends React.Component {
             console.log(error);
         }
     };
+
+    nextPage() {
+        e.preventDefault();
+        this.setState({ page: this.state.page + 1 });
+        this.getSearchMovie();
+    }
 
     componentDidMount() {
         this.getSearchMovie();
@@ -59,6 +66,7 @@ class Home extends React.Component {
                     ) : (<div className="search-result">
                         <SearchForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} value={this.state.value} />
                         <Movies movies={movies} />
+                        <button onClick={this.nextPage}></button>
                     </div>
                     )
                     )
