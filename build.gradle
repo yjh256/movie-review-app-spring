@@ -59,9 +59,9 @@ node {
 	inputs.dir "$webappDir"
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-		args = ["run"]
+		args = ["run build"]
 	} else {
-		args = ["run"]
+		args = ["run build"]
 	}
 }
 
