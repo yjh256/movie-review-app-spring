@@ -11,7 +11,6 @@ class Home extends React.Component {
         isLoading: true,
         movies: [],
         value: "",
-        page: 1,
         isError: false
     };
 
@@ -22,7 +21,7 @@ class Home extends React.Component {
             if (search === "") {
                 this.setState({ movies: [], isLoading: false })
             } else {
-                const { data : { items }}= await axios.get('/api/v1/movies/'+search+'/'+page);
+                const { data : { items }}= await axios.get('/api/v1/movies/'+search);
                 this.setState({ movies: items, isLoading: false })
             }
         } catch (error) {
@@ -30,12 +29,6 @@ class Home extends React.Component {
             console.log(error);
         }
     };
-
-    nextPage = (e: any) => {
-        e.preventDefault();
-        this.setState({ page: this.state.page + 1 });
-        this.getSearchMovie();
-    }
 
     componentDidMount() {
         this.getSearchMovie();
@@ -66,7 +59,6 @@ class Home extends React.Component {
                     ) : (<div className="search-result">
                         <SearchForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} value={this.state.value} />
                         <Movies movies={movies} />
-                        <button onClick={this.nextPage}></button>
                     </div>
                     )
                     )
