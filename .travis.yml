@@ -7,7 +7,7 @@ branches:
     - master
 
 before_install:
-  - npm install -g
+  - ps: Install-Product node $env:14
   - chmod +x ./gradlew
 
 install: skip
