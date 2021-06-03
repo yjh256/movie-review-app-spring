@@ -7,7 +7,7 @@ branches:
     - master
 
 before_install:
-  - ps: Install-Product node $env:14
+  - Install-Product node ''
   - chmod +x ./gradlew
 
 install: skip
