@@ -10,6 +10,7 @@ branches:
     - master
 
 before_install:
+  - node --version
   - chmod +x ./gradlew
 
 install: skip
