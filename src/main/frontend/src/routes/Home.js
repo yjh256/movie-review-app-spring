@@ -47,7 +47,7 @@ class Home extends React.Component {
         return (
             <section className="container">
                 <h1 id="head">환영합니다!</h1>
-                <h4 id="subhead">영화를 검색해 보세요!</h4>
+                <h4 id="subhead">영화를 검색해 보세요.</h4>
                 { isError ? (
                     <div className="error-page">
                         <Error />
