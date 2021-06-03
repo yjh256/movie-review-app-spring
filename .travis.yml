@@ -1,8 +1,10 @@
 language: java
 jdk:
   - openjdk8
+
 node_js:
-  - 12
+  - 14
+
 branches:
   only:
     - master
